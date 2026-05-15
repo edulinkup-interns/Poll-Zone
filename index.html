@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Community Polling App</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="topbar">
+
+      <h1>PollZone</h1>
+
+      <button type="button" class="theme-btn" onclick="toggleTheme()">
+        Toggle Theme
+      </button>
+
+    </div>
+
+    <!-- CREATE POLL -->
+
+    <div class="form-box">
+
+      <h2>Create Poll</h2>
+      <input type="text" id="question" placeholder="Enter Your Poll Question">
+
+      <select id="category">
+        <option>Opinion</option>
+        <option>Decision</option>
+        <option>Survey</option>
+      </select>
+
+      <div class="options">
+
+        <input type="text" class="option" placeholder="Option 1">
+        <input type="text" class="option" placeholder="Option 2">
+        <input type="text" class="option" placeholder="Option 3">
+        <input type="text" class="option" placeholder="Option 4">
+
+      </div>
+
+      <input type="datetime-local" id="expiry">
+
+      <button type="button" class="create-btn" onclick="createPoll()">
+        Create Poll
+      </button>
+
+    </div>
+
+    <!-- SEARCH -->
+
+    <div class="search-box">
+
+      <input
+        type="text"
+        id="search"
+        placeholder="Search Polls..."
+        onkeyup="renderPolls()"
+      >
+
+      <select id="filter" onchange="renderPolls()">
+
+        <option value="All">All Categories</option>
+        <option value="Opinion">Opinion</option>
+        <option value="Decision">Decision</option>
+        <option value="Survey">Survey</option>
+
+      </select>
+
+    </div>
+
+    <!-- POLLS -->
+
+    <div id="pollContainer" class="poll-grid"></div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

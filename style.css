@@ -1,0 +1,455 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:linear-gradient(to right,#0F172A,#7b6eb1);
+  color:white;
+  min-height:100vh;
+  transition:0.3s;
+}
+
+body.light{
+  background:linear-gradient(to right,#f1f5f9,#e2e8f0);
+  color:#111;
+}
+
+.container{
+  width:95%;
+  max-width:1200px;
+  margin:auto;
+  padding:20px;
+}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+h1{
+  font-size:2rem;
+  background:linear-gradient(to right,#38bdf8,#a855f7);
+  background-clip:text;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+button{
+  border:none;
+  padding:12px 18px;
+  border-radius:10px;
+  cursor:pointer;
+  color:white;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:translateY(-3px);
+   background:linear-gradient(to right,#38bdf8,#a855f7);
+}
+
+.theme-btn{
+  background:#243356;
+}
+
+.create-btn{
+  margin-top:15px;
+  background:linear-gradient(to right,#0a51eb,#7c3aed);
+  width:20%;
+  height: 50px;
+  font-size: 20px;
+}
+
+.form-box,
+.poll-card{
+  background:rgba(255,255,255,0.06);
+  padding:20px;
+  border-radius:20px;
+  backdrop-filter:blur(10px);
+  margin-bottom:20px;
+  border: solid 3px blueviolet;
+  box-shadow: 3px 3px 5px rgb(122, 3, 233);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body.light .form-box,
+body.light .poll-card{
+  background:white;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+input,
+select{
+  width:90%;
+  padding:12px;
+  margin-top:10px;
+  border:none;
+  outline:none;
+  border-radius:10px;
+  align-items: center;
+  justify-content: center;
+}
+
+#question{
+  width: 100%;
+  display: flex;
+  font-size: 1.2rem;
+  border: solid 3px blueviolet;
+}
+#category{
+  width: 30%;
+  margin-right: 780px;
+  display: flex;
+  margin-top: 15px;
+  font-size: 1.2rem;
+  border: solid 3px blueviolet;
+}
+#expiry{
+  width: 30%;
+  margin-right: 780px;
+  display: flex;
+  margin-top: 15px;
+  font-size: 1.2rem;
+  border: solid 3px blueviolet;
+}
+.options{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.option{
+  font-size: 1.2rem;
+  border: solid 3px blueviolet;
+}
+
+
+.search-box{
+  display:flex;
+  gap:10px;
+  margin-bottom:20px;
+  flex-wrap:wrap;
+  width: 50%;
+}
+#search{
+  border: solid 3px blueviolet;
+  font-size: 1.2rem;
+}
+#filter{
+  border: solid 3px blueviolet;
+  font-size: 1.2rem;
+}
+
+.poll-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+  gap: 20px;
+}
+
+.flex{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.option-btn{
+  width:100%;
+  margin-top:10px;
+  text-align:left;
+  background:#1e293b;
+ 
+}
+
+body.light .option-btn{
+  background:#e2e8f0;
+  color:#111;
+}
+
+.progress{
+  width:100%;
+  height:10px;
+  background:#334155;
+  border-radius:10px;
+  overflow:hidden;
+  margin-top:15px;
+}
+
+.progress span{
+  display:block;
+  height:100%;
+  background:linear-gradient(to right,#06b6d4,#8b5cf6);
+  transition:width 0.5s ease;
+}
+
+.tag{
+  padding:5px 12px;
+  background:#9b60fb;
+  border-radius:20px;
+  font-size:0.8rem;
+}
+
+.expired{
+  background:crimson;
+}
+
+.timer{
+  margin-top:10px;
+  color:#facc15;
+  font-weight:bold;
+}
+
+.action-buttons{
+  display:flex;
+  gap:10px;
+  margin-top:15px;
+  flex-wrap:wrap;
+}
+
+.export-btn{
+  background:#059669;
+}
+
+.delete-btn{
+  background:crimson;
+}
+
+.no-chart{
+  margin-top:15px;
+  padding:20px;
+  border-radius:15px;
+  text-align:center;
+  background:rgba(255,255,255,0.05);
+  color:#8094b1;
+  font-weight:bold;
+  border:1px dashed #475569;
+  animation:pulse 2s infinite;
+}
+
+canvas{
+  margin-top:1px;
+}
+
+@keyframes pulse{
+
+  0%{
+    opacity:0.7;
+  }
+
+  50%{
+    opacity:1;
+  }
+
+  100%{
+    opacity:0.7;
+  }
+
+}
+
+@media(max-width:768px){
+
+  h1{
+    font-size:1.5rem;
+  }
+
+  .poll-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+
+/* =========================
+   CHART WRAPPER
+========================= */
+
+.chart-wrapper{
+
+  width:300px;
+
+  height:300px;
+
+  margin:20px auto;
+
+  position:relative;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+}
+
+/* =========================
+   CHART CANVAS
+========================= */
+
+.chart-wrapper canvas{
+
+  width:100% !important;
+
+  height:100% !important;
+
+}
+
+/* =========================
+   CREATE CHART BUTTON
+========================= */
+
+.create-chart-btn{
+
+  width:100%;
+
+  margin-top:15px;
+
+  background:
+  linear-gradient(
+    to right,
+    #0ea5e9,
+    #8b5cf6
+  );
+
+  font-size:1rem;
+
+  font-weight:bold;
+
+}
+
+/* =========================
+   CHART STATS
+========================= */
+
+.chart-stats{
+
+  margin-top:20px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:12px;
+
+}
+
+/* =========================
+   EACH STAT ITEM
+========================= */
+
+.stat-item{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  padding:10px 14px;
+
+  border-radius:12px;
+
+  background:
+  rgba(255,255,255,0.05);
+
+}
+
+/* =========================
+   LIGHT MODE STAT ITEM
+========================= */
+
+body.light .stat-item{
+
+  background:#f1f5f9;
+
+}
+
+/* =========================
+   COLOR BOX
+========================= */
+
+.color-box{
+
+  width:18px;
+
+  height:18px;
+
+  border-radius:5px;
+
+  flex-shrink:0;
+
+}
+
+/* =========================
+   OPTION BUTTON DISABLED
+========================= */
+
+.option-btn:disabled{
+
+  opacity:0.7;
+
+  cursor:not-allowed;
+
+}
+
+/* =========================
+   CHART CONTAINER
+========================= */
+
+.chart-container{
+
+  margin-top:20px;
+
+  animation:fadeIn 0.5s ease;
+
+}
+
+/* =========================
+   FADE IN
+========================= */
+
+@keyframes fadeIn{
+
+  from{
+
+    opacity:0;
+
+    transform:translateY(10px);
+
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+  }
+
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+  .chart-wrapper{
+
+    width:180px;
+
+    height:180px;
+
+  }
+
+}
