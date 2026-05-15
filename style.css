@@ -262,194 +262,93 @@ canvas{
   h1{
     font-size:1.5rem;
   }
-
   .poll-grid{
     grid-template-columns:1fr;
   }
 
 }
 
-
-/* =========================
-   CHART WRAPPER
-========================= */
-
 .chart-wrapper{
-
   width:300px;
-
   height:300px;
-
   margin:20px auto;
-
   position:relative;
-
   display:flex;
-
   justify-content:center;
-
   align-items:center;
-
 }
-
-/* =========================
-   CHART CANVAS
-========================= */
 
 .chart-wrapper canvas{
-
   width:100% !important;
-
   height:100% !important;
-
 }
 
-/* =========================
-   CREATE CHART BUTTON
-========================= */
-
 .create-chart-btn{
-
   width:100%;
-
   margin-top:15px;
-
   background:
   linear-gradient(
     to right,
     #0ea5e9,
     #8b5cf6
   );
-
   font-size:1rem;
-
   font-weight:bold;
-
 }
-
-/* =========================
-   CHART STATS
-========================= */
 
 .chart-stats{
-
   margin-top:20px;
-
   display:flex;
-
   flex-direction:column;
-
   gap:12px;
-
 }
-
-/* =========================
-   EACH STAT ITEM
-========================= */
 
 .stat-item{
-
   display:flex;
-
   align-items:center;
-
   gap:12px;
-
   padding:10px 14px;
-
   border-radius:12px;
-
   background:
   rgba(255,255,255,0.05);
-
 }
-
-/* =========================
-   LIGHT MODE STAT ITEM
-========================= */
 
 body.light .stat-item{
-
   background:#f1f5f9;
-
 }
-
-/* =========================
-   COLOR BOX
-========================= */
 
 .color-box{
-
   width:18px;
-
   height:18px;
-
   border-radius:5px;
-
   flex-shrink:0;
-
 }
-
-/* =========================
-   OPTION BUTTON DISABLED
-========================= */
 
 .option-btn:disabled{
-
   opacity:0.7;
-
   cursor:not-allowed;
-
 }
-
-/* =========================
-   CHART CONTAINER
-========================= */
-
 .chart-container{
-
   margin-top:20px;
-
   animation:fadeIn 0.5s ease;
-
 }
-
-/* =========================
-   FADE IN
-========================= */
 
 @keyframes fadeIn{
-
   from{
-
     opacity:0;
-
     transform:translateY(10px);
-
   }
 
   to{
-
     opacity:1;
-
     transform:translateY(0);
-
   }
-
 }
-
-/* =========================
-   RESPONSIVE
-========================= */
 
 @media(max-width:768px){
 
   .chart-wrapper{
-
     width:180px;
-
     height:180px;
-
   }
-
 }
