@@ -1,21 +1,9 @@
 let polls =
 JSON.parse(localStorage.getItem("polls")) || [];
 
-/* =========================
-   TEST MODE
-========================= */
-
 const TEST_MODE = true;
 
-/* =========================
-   CHART STORAGE
-========================= */
-
 window.pollCharts = {};
-
-/* =========================
-   CHART COLORS
-========================= */
 
 const chartColors = [
 
@@ -30,10 +18,6 @@ const chartColors = [
 
 ];
 
-/* =========================
-   SAVE POLLS
-========================= */
-
 function savePolls(){
 
   localStorage.setItem(
@@ -42,10 +26,6 @@ function savePolls(){
   );
 
 }
-
-/* =========================
-   THEME
-========================= */
 
 function toggleTheme(){
 
@@ -69,9 +49,6 @@ if(localStorage.getItem("theme") === "light"){
 
 }
 
-/* =========================
-   SANITIZE
-========================= */
 
 function sanitize(str){
 
@@ -79,9 +56,6 @@ function sanitize(str){
 
 }
 
-/* =========================
-   CREATE POLL
-========================= */
 
 function createPoll(){
 
@@ -161,10 +135,6 @@ function createPoll(){
 
 }
 
-/* =========================
-   EXPIRED CHECK
-========================= */
-
 function isExpired(expiry){
 
   if(!expiry) return false;
@@ -173,9 +143,6 @@ function isExpired(expiry){
 
 }
 
-/* =========================
-   VOTE
-========================= */
 
 function vote(pollId, optionIndex){
 
@@ -229,10 +196,6 @@ function vote(pollId, optionIndex){
 
 }
 
-/* =========================
-   CREATE CHART
-========================= */
-
 function createChart(pollId){
 
   const poll =
@@ -252,10 +215,6 @@ function createChart(pollId){
   renderPolls();
 
 }
-
-/* =========================
-   SHARE POLL LINK
-========================= */
 
 function sharePoll(pollId){
 
@@ -283,10 +242,6 @@ function sharePoll(pollId){
 
 }
 
-/* =========================
-   DELETE POLL
-========================= */
-
 function deletePoll(id){
 
   if(!confirm("Delete this poll?")) return;
@@ -307,10 +262,6 @@ function deletePoll(id){
   renderPolls();
 
 }
-
-/* =========================
-   EXPORT CSV
-========================= */
 
 function exportCSV(poll){
 
@@ -362,10 +313,6 @@ function exportCSV(poll){
 
 }
 
-/* =========================
-   TIMER
-========================= */
-
 function getTimeLeft(expiry){
 
   if(!expiry) return "No Expiry";
@@ -391,10 +338,6 @@ function getTimeLeft(expiry){
   return `${hrs}h ${mins}m ${secs}s`;
 
 }
-
-/* =========================
-   RENDER POLLS
-========================= */
 
 function renderPolls(){
 
@@ -613,11 +556,7 @@ function renderPolls(){
     `;
 
     container.appendChild(card);
-
-    /* =========================
-       OPTIONS
-    ========================= */
-
+     
     const optionArea =
     card.querySelector(
       ".options-area"
@@ -700,10 +639,6 @@ function renderPolls(){
       );
 
     });
-
-    /* =========================
-       CREATE CHART
-    ========================= */
 
     if(poll.chartCreated){
 
@@ -789,10 +724,6 @@ function renderPolls(){
 
 }
 
-/* =========================
-   OPEN SHARED POLL
-========================= */
-
 function openSharedPoll(){
 
   const params =
@@ -836,10 +767,5 @@ function openSharedPoll(){
 
 }
 
-/* =========================
-   INITIAL RENDER
-========================= */
-
 renderPolls();
-
 openSharedPoll();
