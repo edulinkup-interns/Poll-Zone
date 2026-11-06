@@ -225,22 +225,22 @@ a:focus-visible {
 }
 
 .theme-btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 
-  padding: 11px 15px;
+  padding: 8px 12px;
 
   color: var(--text);
   background: var(--surface);
 
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 50px;
 
   font-size: 11px;
   font-weight: 700;
 
-  transition: 0.25s;
+  transition: all 0.3s ease;
 }
 
 .theme-btn:hover {
@@ -251,6 +251,48 @@ a:focus-visible {
 .theme-icon {
   color: var(--accent);
   font-size: 16px;
+  line-height: 1;
+}
+
+/* Toggle track */
+.theme-track {
+  position: relative;
+
+  width: 36px;
+  height: 20px;
+
+  border-radius: 20px;
+  background: #475569;
+
+  transition: background 0.3s ease;
+}
+
+/* Toggle circle */
+.theme-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+
+  width: 14px;
+  height: 14px;
+
+  border-radius: 50%;
+  background: white;
+
+  transition: transform 0.3s ease;
+}
+
+/* Light theme switch */
+body.light .theme-track {
+  background: #f59e0b;
+}
+
+body.light .theme-thumb {
+  transform: translateX(16px);
+}
+
+.theme-btn:active {
+  transform: scale(0.96);
 }
 
 /* =====================================

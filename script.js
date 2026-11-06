@@ -27,25 +27,36 @@ function savePolls(){
 
 }
 
+const themeIcon=document.querySelector(".theme-icon");
+const themeName=document.querySelector("#theme-name");
+
+
 function toggleTheme(){
 
-  document.body.classList.toggle("light");
+   document.body.classList.toggle("light");
 
-  if(document.body.classList.contains("light")){
+   if(!document.body.classList.contains("light")){
 
-    localStorage.setItem("theme","light");
-
-  }else{
-
-    localStorage.setItem("theme","dark");
+    localStorage.setItem("theme","Dark");
+    localStorage.setItem("themeIcon","☾");
+    themeName.textContent=localStorage.getItem("theme");
+    themeIcon.textContent=localStorage.getItem("themeIcon");
+    return;
 
   }
 
+    localStorage.setItem("theme","Light");
+    localStorage.setItem("themeIcon","☼");
+    themeName.textContent=localStorage.getItem("theme");
+    themeIcon.textContent=localStorage.getItem("themeIcon");
 }
 
-if(localStorage.getItem("theme") === "light"){
+    if(localStorage.getItem("theme") === "Light"){
 
-  document.body.classList.add("light");
+    document.body.classList.add("light");
+    localStorage.setItem("themeIcon","☼");
+    themeName.textContent=localStorage.getItem("theme");
+    themeIcon.textContent=localStorage.getItem("themeIcon");
 
 }
 
