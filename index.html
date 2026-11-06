@@ -1,80 +1,435 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Community Polling App</title>
+  <meta name="theme-color" content="#080b14">
+  <meta name="description" content="PollZone — Create polls, vote on ideas and discover what your community thinks.">
+
+  <title>PollZone — Community Polling</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 </head>
+
 <body>
+
+  <div class="background-glow glow-one"></div>
+  <div class="background-glow glow-two"></div>
+  <div class="background-grid"></div>
 
   <div class="container">
 
-    <div class="topbar">
+    <!-- NAVBAR -->
 
-      <h1>PollZone</h1>
+    <header class="topbar">
 
-      <button type="button" class="theme-btn" onclick="toggleTheme()">
-        Toggle Theme
-      </button>
+      <a href="#" class="brand">
+        <span class="brand-logo">P</span>
 
-    </div>
+        <span class="brand-name">
+          Poll<span>Zone</span>
+        </span>
+      </a>
 
-    <div class="form-box">
+      <div class="topbar-right">
 
-      <h2>Create Poll</h2>
-      <input type="text" id="question" placeholder="Enter Your Poll Question">
+        <div class="community-status">
+          <span class="status-dot"></span>
+          Community Polling
+        </div>
 
-      <select id="category">
-        <option>Opinion</option>
-        <option>Decision</option>
-        <option>Survey</option>
-      </select>
-
-      <div class="options">
-
-        <input type="text" class="option" placeholder="Option 1">
-        <input type="text" class="option" placeholder="Option 2">
-        <input type="text" class="option" placeholder="Option 3">
-        <input type="text" class="option" placeholder="Option 4">
+        <button
+          type="button"
+          class="theme-btn"
+          onclick="toggleTheme()"
+          aria-label="Toggle light and dark theme"
+        >
+          <span class="theme-icon">◐</span>
+          <span>Theme</span>
+        </button>
 
       </div>
 
-      <input type="datetime-local" id="expiry">
+    </header>
 
-      <button type="button" class="create-btn" onclick="createPoll()">
-        Create Poll
-      </button>
+    <main>
 
-    </div>
+      <!-- HERO -->
 
-    <div class="search-box">
+      <section class="hero">
 
-      <input
-        type="text"
-        id="search"
-        placeholder="Search Polls..."
-        onkeyup="renderPolls()"
-      >
+        <div class="hero-content">
 
-      <select id="filter" onchange="renderPolls()">
+          <div class="hero-badge">
+            <span>✦</span>
+            THE COMMUNITY DECIDES
+          </div>
 
-        <option value="All">All Categories</option>
-        <option value="Opinion">Opinion</option>
-        <option value="Decision">Decision</option>
-        <option value="Survey">Survey</option>
+          <h1>
+            Your voice.<br>
+            Your <span>choice.</span>
+          </h1>
 
-      </select>
+          <p>
+            Create meaningful polls, share your opinions and
+            discover what everyone else is thinking.
+          </p>
 
-    </div>
+          <a href="#create-section" class="hero-cta">
+            Create your first poll
+            <span>↗</span>
+          </a>
 
-    <div id="pollContainer" class="poll-grid"></div>
+          <div class="hero-features">
+            <span>✦ Easy to create</span>
+            <span>✦ Instant voting</span>
+            <span>✦ Visual insights</span>
+          </div>
+
+        </div>
+
+        <div class="hero-visual">
+
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+
+          <div class="floating-card">
+
+            <div class="floating-card-header">
+              <span>COMMUNITY INSIGHTS</span>
+              <span class="live-badge">
+                <i></i> LIVE
+              </span>
+            </div>
+
+            <h3>
+              What makes a<br>
+              great community?
+            </h3>
+
+            <div class="fake-poll">
+
+              <div class="fake-option">
+                <div class="fake-option-info">
+                  <span>Ideas</span>
+                  <span>82%</span>
+                </div>
+                <div class="fake-track">
+                  <span class="fake-fill fill-one"></span>
+                </div>
+              </div>
+
+              <div class="fake-option">
+                <div class="fake-option-info">
+                  <span>People</span>
+                  <span>65%</span>
+                </div>
+                <div class="fake-track">
+                  <span class="fake-fill fill-two"></span>
+                </div>
+              </div>
+
+              <div class="fake-option">
+                <div class="fake-option-info">
+                  <span>Creativity</span>
+                  <span>48%</span>
+                </div>
+                <div class="fake-track">
+                  <span class="fake-fill fill-three"></span>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="floating-card-footer">
+              <span>Every vote matters.</span>
+              <span>✦</span>
+            </div>
+
+          </div>
+
+          <div class="floating-note note-one">
+            <span>✳</span> Share your ideas
+          </div>
+
+          <div class="floating-note note-two">
+            <span>↗</span> Make your voice heard
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- CREATE POLL -->
+
+      <section class="create-section" id="create-section">
+
+        <div class="section-heading">
+
+          <div>
+            <span class="section-label">START SOMETHING INTERESTING</span>
+
+            <h2>
+              Create a poll<span class="heading-dot">.</span>
+            </h2>
+
+            <p>
+              Have a question? Let the community answer it.
+            </p>
+          </div>
+
+          <div class="section-icon">✎</div>
+
+        </div>
+
+        <div class="form-box">
+
+          <div class="form-header">
+
+            <div class="form-header-left">
+              <span class="step-number">01</span>
+
+              <div>
+                <h3>New poll</h3>
+                <p>Fill in the details below</p>
+              </div>
+            </div>
+
+            <span class="form-ready">
+              <i></i> READY TO CREATE
+            </span>
+
+          </div>
+
+          <div class="form-divider"></div>
+
+          <div class="field-group question-field">
+
+            <label for="question">
+              POLL QUESTION
+            </label>
+
+            <input
+              type="text"
+              id="question"
+              placeholder="What would you like to ask the community?"
+              autocomplete="off"
+            >
+
+          </div>
+
+          <div class="field-row">
+
+            <div class="field-group">
+
+              <label for="category">
+                CATEGORY
+              </label>
+
+              <div class="select-wrapper">
+                <select id="category">
+                  <option>Opinion</option>
+                  <option>Decision</option>
+                  <option>Survey</option>
+                </select>
+                <span class="select-arrow">⌄</span>
+              </div>
+
+            </div>
+
+            <div class="field-group">
+
+              <label for="expiry">
+                EXPIRY DATE & TIME
+              </label>
+
+              <input
+                type="datetime-local"
+                id="expiry"
+              >
+
+            </div>
+
+          </div>
+
+          <div class="options-section">
+
+            <div class="options-title">
+
+              <label>POLL OPTIONS</label>
+
+              <span>ADD AT LEAST 2 OPTIONS</span>
+
+            </div>
+
+            <div class="options">
+
+              <div class="option-wrapper">
+                <span class="option-letter">A</span>
+                <input
+                  type="text"
+                  class="option"
+                  placeholder="First choice"
+                >
+              </div>
+
+              <div class="option-wrapper">
+                <span class="option-letter">B</span>
+                <input
+                  type="text"
+                  class="option"
+                  placeholder="Second choice"
+                >
+              </div>
+
+              <div class="option-wrapper">
+                <span class="option-letter">C</span>
+                <input
+                  type="text"
+                  class="option"
+                  placeholder="Third choice"
+                >
+              </div>
+
+              <div class="option-wrapper">
+                <span class="option-letter">D</span>
+                <input
+                  type="text"
+                  class="option"
+                  placeholder="Fourth choice"
+                >
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="form-footer">
+
+            <span class="form-hint">
+              ✦ Your question can spark a great conversation.
+            </span>
+
+            <button
+              type="button"
+              class="create-btn"
+              onclick="createPoll()"
+            >
+              Create Poll
+              <span>↗</span>
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- COMMUNITY POLLS -->
+
+      <section class="polls-section">
+
+        <div class="section-heading">
+
+          <div>
+            <span class="section-label">EXPLORE WHAT PEOPLE THINK</span>
+
+            <h2>
+              Community polls<span class="heading-dot">.</span>
+            </h2>
+
+            <p>
+              Discover conversations and make your opinion count.
+            </p>
+          </div>
+
+          <div class="section-icon polls-icon">✳</div>
+
+        </div>
+
+        <!-- SEARCH AND FILTER -->
+
+        <div class="search-box">
+
+          <div class="search-wrapper">
+
+            <span class="search-icon">⌕</span>
+
+            <input
+              type="text"
+              id="search"
+              placeholder="Search polls by question..."
+              onkeyup="renderPolls()"
+              autocomplete="off"
+            >
+
+          </div>
+
+          <div class="filter-wrapper">
+
+            <span class="filter-label">CATEGORY</span>
+
+            <select
+              id="filter"
+              onchange="renderPolls()"
+            >
+              <option value="All">All Categories</option>
+              <option value="Opinion">Opinion</option>
+              <option value="Decision">Decision</option>
+              <option value="Survey">Survey</option>
+            </select>
+
+          </div>
+
+        </div>
+
+        <!-- POLL LIST -->
+
+        <div class="feed-heading">
+
+          <div>
+            <span class="feed-dot"></span>
+            COMMUNITY FEED
+          </div>
+
+          <span class="feed-caption">
+            EXPLORE & PARTICIPATE
+          </span>
+
+        </div>
+
+        <div id="pollContainer" class="poll-grid"></div>
+
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+      <a href="#" class="footer-brand">
+        Poll<span>Zone</span>
+      </a>
+
+      <p>
+        Built for opinions. Powered by community.
+      </p>
+
+      <span class="footer-copyright">
+        © 2026 POLLZONE
+      </span>
+
+    </footer>
 
   </div>
 
